@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gerenciamento de Insumos de TI</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between h-16">
+                <!-- Logo e Título -->
+                <div class="flex items-center space-x-4">
+                    <div class="bg-blue-600 p-2 rounded">
+                        <img src="https://catarinensepharma.com.br/wp-content/themes/catarinense/assets/images/logo-footer.png.webp" 
+                             alt="Logo Catarinense" 
+                             class="h-8 w-auto">
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-800">
+                        Gerenciamento de Insumos de TI
+                    </h1>
+                </div>
+
+                <!-- Menu do Usuário -->
+                <div class="flex items-center">
+                    <div class="relative" id="userMenu">
+                        <button class="flex items-center space-x-2 text-gray-700 hover:text-gray-900 focus:outline-none">
+                            <span id="currentUser" class="text-sm font-medium"></span>
+                            <i class="fas fa-user-circle text-xl"></i>
+                        </button>
+                        <!-- Dropdown Menu -->
+                        <div class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1" id="userDropdown">
+                            <button id="logoutBtn" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                <i class="fas fa-sign-out-alt mr-2"></i> Sair
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container Principal -->
+    <div class="max-w-7xl mx-auto px-4 py-6">
+        <!-- Abas -->
+        <div class="mb-6">
+            <nav class="flex space-x-4" aria-label="Tabs">
+                <button class="tab-button px-3 py-2 text-sm font-medium rounded-md" data-tab="users">
+                    <i class="fas fa-users mr-2"></i>
+                    Gerenciamento de Usuários
+                </button>
+                <button class="tab-button px-3 py-2 text-sm font-medium rounded-md" data-tab="search">
+                    <i class="fas fa-search mr-2"></i>
+                    Buscar Produto
+                </button>
+                <button class="tab-button px-3 py-2 text-sm font-medium rounded-md" data-tab="register">
+                    <i class="fas fa-plus-circle mr-2"></i>
+                    Cadastrar Produto
+                </button>
+                <button class="tab-button px-3 py-2 text-sm font-medium rounded-md" data-tab="assets">
+                    <i class="fas fa-laptop mr-2"></i>
+                    Cadastrar Ativos
+                </button>
+                <button class="tab-button px-3 py-2 text-sm font-medium rounded-md" data-tab="descriptive">
+                    <i class="fas fa-tags mr-2"></i>
+                    Gerenciador de Descritivos de Ativos
+                </button>
+                <button class="tab-button px-3 py-2 text-sm font-medium rounded-md" data-tab="logs">
+                    <i class="fas fa-history mr-2"></i>
+                    Logs de Movimentações
+                </button>
+            </nav>
+        </div>
+
+        <!-- Conteúdo das Abas -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <!-- Gerenciamento de Usuários -->
+            <div id="usersTab" class="tab-content hidden">
+                <div id="usersContent"></div>
+            </div>
+
+            <!-- Buscar Produto -->
+            <div id="searchTab" class="tab-content hidden">
+                <div id="searchContent"></div>
+            </div>
+
+            <!-- Cadastrar Produto -->
+            <div id="registerTab" class="tab-content hidden">
+                <div id="registerContent"></div>
+            </div>
+
+            <!-- Cadastrar Ativos -->
+            <div id="assetsTab" class="tab-content hidden">
+                <div id="assetsContent"></div>
+            </div>
+
+            <!-- Gerenciador de Descritivos -->
+            <div id="descriptiveTab" class="tab-content hidden">
+                <div id="descriptiveContent"></div>
+            </div>
+
+            <!-- Logs de Movimentações -->
+            <div id="logsTab" class="tab-content hidden">
+                <div id="logsContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Container -->
+    <div id="modalContainer" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-lg w-full mx-4">
+            <div class="p-6">
+                <div id="modalContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/users.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/assets.js"></script>
+    <script src="js/descriptives.js"></script>
+    <script src="js/logs.js"></script>
+</body>
+</html>
